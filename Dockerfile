@@ -43,7 +43,6 @@ ARG extra_packages
 RUN apk add --update --no-cache \
     openssl \
     tzdata \
-    ruby=2.5 \
     postgresql-dev \
     postgresql-client \
     $extra_packages
