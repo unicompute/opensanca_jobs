@@ -1,6 +1,6 @@
 # build stage
 # FROM ruby:2.5-alpine AS builder
-FROM alpine:3.10 AS builder
+FROM ruby:2.5-alpine AS builder
 
 ARG build_without
 ARG rails_env="development"
@@ -17,7 +17,6 @@ RUN apk add --update --no-cache \
     postgresql-dev \
     postgresql-client \
     nodejs \
-    ruby=2.5 \
   && wget https://yarnpkg.com/latest.tar.gz \
   && mkdir -p /opt/yarn \
   && tar -xf latest.tar.gz -C /opt/yarn --strip 1 \
@@ -36,7 +35,7 @@ RUN bundle install && yarn && bundle exec rake assets:precompile \
 
 # final stage
 # FROM ruby:2.5-alpine
-FROM alpine:3.10
+FROM ruby:2.5-alpine
 LABEL maintainer="contato@opensanca.com.br"
 
 ARG extra_packages
