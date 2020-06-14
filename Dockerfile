@@ -1,6 +1,6 @@
 # build stage
 # FROM ruby:2.5-alpine AS builder
-FROM ruby:2.5.3-alpine AS builder
+FROM alpine:3.10 AS builder
 
 ARG build_without
 ARG rails_env="development"
@@ -35,7 +35,7 @@ RUN bundle install && yarn && bundle exec rake assets:precompile \
 
 # final stage
 # FROM ruby:2.5-alpine
-FROM ruby:2.5.3-alpine
+FROM alpine:3.10
 LABEL maintainer="contato@opensanca.com.br"
 
 ARG extra_packages
