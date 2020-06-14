@@ -1,1 +1,1 @@
-FROM ruby:2.5.3-alpine
+FROM ruby:2.5.0-alpine AS builder
