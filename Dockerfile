@@ -17,6 +17,7 @@ RUN apk add --update --no-cache \
     postgresql-dev \
     postgresql-client \
     nodejs \
+    ruby=2.5 \
   && wget https://yarnpkg.com/latest.tar.gz \
   && mkdir -p /opt/yarn \
   && tar -xf latest.tar.gz -C /opt/yarn --strip 1 \
@@ -43,6 +44,7 @@ ARG extra_packages
 RUN apk add --update --no-cache \
     openssl \
     tzdata \
+    ruby=2.5 \
     postgresql-dev \
     postgresql-client \
     $extra_packages
